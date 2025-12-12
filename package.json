@@ -1,0 +1,93 @@
+{
+  "name": "asciinema2video",
+  "version": "1.0.0",
+  "description": "Convert asciinema .cast files to video (MP4)",
+  "main": "dist/cli.js",
+  "bin": {
+    "asciinema2video": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "build:clean": "rm -rf dist",
+    "build:prod": "tsup --dts --minify --sourcemap",
+    "prepublishOnly": "pnpm test",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest --run",
+    "test:cov": "vitest --coverage --run",
+    "test:watch": "vitest",
+    "check": "pnpm check:biome --write && pnpm check:tsc",
+    "check:ci": "pnpm check:biome && pnpm check:tsc",
+    "check:tsc": "pnpm exec tsc --noEmit",
+    "check:biome": "pnpm biome check --unsafe src",
+    "prepare": "husky",
+    "publish": "pnpm build:prod && pnpm publish --no-git-checks",
+    "commitlint": "commitlint --edit",
+    "release": "commit-and-tag-version --bumpFiles package.json"
+  },
+  "lint-staged": {
+    "src/*.{js,ts}": [
+      "bash -c 'pnpm check'"
+    ]
+  },
+  "keywords": [
+    "asciinema",
+    "cast",
+    "ffmpeg",
+    "mp4",
+    "recording",
+    "terminal",
+    "video"
+  ],
+  "author": {
+    "name": "Xiao Hanyu",
+    "email": "xiaohanyu1988@gmail.com",
+    "url": "https://xiaohanyu.me"
+  },
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaohanyu/asciinema2video.git"
+  },
+  "dependencies": {
+    "@biomejs/biome": "^2.3.9",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@types/node": "^25.0.2",
+    "@vitest/coverage-v8": "^4.0.15",
+    "asciinema-player": "^3.13.4",
+    "commander": "^14.0.2",
+    "commit-and-tag-version": "^12.6.1",
+    "consola": "^3.4.2",
+    "ffmpeg-static": "^5.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "puppeteer": "^24",
+    "puppeteer-screen-recorder": "^3.0.6",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^6.0.1",
+    "vitest": "^4.0.15"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "ffmpeg-static"
+    ],
+    "ignoredBuiltDependencies": [
+      "@ffmpeg-installer/darwin-arm64",
+      "esbuild",
+      "puppeteer"
+    ]
+  }
+}
