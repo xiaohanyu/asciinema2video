@@ -1,6 +1,8 @@
 # Changelog
 
-## v1.0.0 - Initial Release
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## 1.0.0 (2025-12-17)
 
 ### Features
 - ✅ Convert `.cast` files to MP4 video
@@ -17,8 +19,3 @@
 - Leverages official asciinema-player for accurate rendering
 - FFmpeg (via ffmpeg-static) for video encoding
 - TypeScript for type safety
-
-### Known Limitations
-- Requires Node.js 14+
-- Video encoding time depends on cast file duration
-- Output format is MP4 (H.264)
