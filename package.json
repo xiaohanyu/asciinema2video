@@ -21,7 +21,6 @@
     "check:tsc": "pnpm exec tsc --noEmit",
     "check:biome": "pnpm biome check --unsafe src",
     "prepare": "husky",
-    "publish": "pnpm build:prod && pnpm publish --no-git-checks",
     "commitlint": "commitlint --edit",
     "release": "commit-and-tag-version --bumpFiles package.json"
   },
