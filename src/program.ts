@@ -105,6 +105,7 @@ export function parseCliArguments(argv?: string[]) {
 Examples:
   $ asciinema2video demo.cast -o demo.mp4
   $ asciinema2video demo.cast --width 1920 --height 1080 --theme dracula
+  $ asciinema2video demo.cast --width 1920 --height 1080 --scale 3
 `
     )
 
